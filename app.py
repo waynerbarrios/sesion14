@@ -31,6 +31,7 @@ def login():
         if resultSet==None:
            return jsonify({"mensaje":"Usuario no Existe"}) 
         else : 
+            print(resultSet)
             u0= resultSet[0]
             u1= resultSet[1]
             if usu==u0 and pwd==u1:
