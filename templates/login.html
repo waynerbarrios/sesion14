@@ -1,0 +1,15 @@
+{% block contenido %}
+<h1>Iniciar Sesión</h1>
+    <form action="/login" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=20)}}<br>
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=20) }}<br>
+        </p>
+        <p>{{ form.enviar() }}</p>
+    </form>
+{% endblock %}
