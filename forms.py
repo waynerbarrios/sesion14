@@ -7,4 +7,4 @@ class FormaLogin(FlaskForm):
 
     password = PasswordField('Password', validators=[DataRequired(message='No dejar vacío, completar')])
 
-    enviar = SubmitField('Submit')
+    enviar = SubmitField('Iniciar Sesión')

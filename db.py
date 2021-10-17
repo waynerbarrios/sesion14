@@ -24,13 +24,12 @@ def addUser(user, pwd, pwdh):
         print(error)
         return False
 
-
 def getUser(user):
     try : 
         conn= conectar()
         SQLstmt="select * from usuuser where useruser=?;"
         cursor= conn.execute(SQLstmt,  (user,))
-        resultado= cursor.fetchall()
+        resultado= cursor.fetchone()
         return resultado
     except Error as error:
         return error
