@@ -31,13 +31,12 @@ def login():
         if resultSet==None:
            return jsonify({"mensaje":"Usuario no Existe"}) 
         else : 
-            print(resultSet)
             u0= resultSet[0]
             u1= resultSet[1]
-            if usu==u0 and pwd==u1:
+            if (usu==u0 and pwd==u1):
             # Creacion de una cookie
                 cookieUser= make_response(render_template("ingreso.html", user= usu))
-                cookieUser.set_cookie('UserLogin', usu)
+                cookieUser.set_cookie('_user', usu)
                 return cookieUser
             else :
                 return jsonify({"mensaje":"Usuario con Password Errado"})
@@ -46,8 +45,9 @@ def login():
 
 @app.route('/cookie')
 def obtenerCookie():
-    valor= request.cookies.get('UserLogin')
+    valor= request.cookies.get('_user')
     return "<h2>La Cookie almacenada Administrador es "+valor+"</h2>"
+
 # Main program
 if __name__=="__main__":
     app.run(debug=True)
